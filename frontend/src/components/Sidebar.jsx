@@ -18,8 +18,8 @@ export default function Sidebar({
   return (
     <div className="w-80 bg-black text-slate-300 flex flex-col shrink-0">
       <div className="p-6 border-b border-slate-800">
-        <h1 className="text-2xl font-extrabold text-white flex items-center gap-2">
-          <span className="text-3xl">📄</span> DocuMind
+        <h1 className="text-2xl flex justify-center font-extrabold text-white flex items-center gap-2">
+           DocuMind
         </h1>
       </div>
 
@@ -35,7 +35,7 @@ export default function Sidebar({
               onClick={() => { setCurrentNamespace(docName) }}
               className={`flex cursor-pointer items-center justify-between text-left w-65 text-sm px-4 py-3 rounded-lg truncate transition-colors group ${
                 currentNamespace === docName 
-                  ? "bg-indigo-600 text-white font-medium" 
+                  ? "bg-linear-to-r from-neutral-900 via-neutral-700 to-neutral-600 l-600 text-white font-medium" 
                   : "hover:bg-slate-800 text-slate-300"
               }`}
             >
