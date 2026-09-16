@@ -3,7 +3,6 @@ import { Toaster, toast } from 'sonner';
 import { Search, Plus, FileText, UploadCloud, Home, Zap, Brain, Shield, Trash2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ChatArea from './components/ChatArea';
-import CommandPalette from './components/CommandPalette';
 import UploadBox from './components/UploadBox';
 import { cn } from './utils';
 
@@ -30,7 +29,6 @@ function App() {
   });
   
   const [currentNamespace, setCurrentNamespace] = useState("");
-  const [isCmdKOpen, setIsCmdKOpen] = useState(false);
   
   const dragCount = useRef(0);
 
@@ -251,15 +249,6 @@ function App() {
         isDragging={isDragging} 
       />
 
-      <CommandPalette 
-        isOpen={isCmdKOpen} 
-        setIsOpen={setIsCmdKOpen} 
-        documents={documents}
-        currentNamespace={currentNamespace}
-        setCurrentNamespace={setCurrentNamespace}
-        handleDelete={triggerDelete}
-      />
-
       {/* Header */}
       <header className="flex h-14 shrink-0 items-center justify-between border-b border-white/5 px-6 bg-[#09090B]/50 backdrop-blur-md z-20">
         <div className="flex items-center gap-6">
@@ -356,14 +345,6 @@ function App() {
                         }}
                       />
                     </label>
-                    <span className="text-zinc-600 text-sm">or</span>
-                    <button 
-                      onClick={() => setIsCmdKOpen(true)}
-                      className="flex items-center gap-3 px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-pointer shadow-lg text-sm text-zinc-300 font-medium"
-                    >
-                      <Search className="h-4 w-4 text-zinc-400" />
-                      Search Library
-                    </button>
                   </motion.div>
                 </div>
                 {documents.length > 0 && (

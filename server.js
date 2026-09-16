@@ -115,14 +115,6 @@ ${contextText}
 QUESTION:
 ${userQuestion}
         `;
-        // const aiResponse = await ai.models.generateContent({
-        //     model: 'gemini-2.5-flash',
-        //     contents: prompt
-        // });
-        // res.json({
-        //     answer: aiResponse.text
-        // })
-
         const groqResponse = await groq.chat.completions.create({
             messages: [
                 {
