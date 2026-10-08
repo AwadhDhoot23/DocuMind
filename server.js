@@ -75,8 +75,8 @@ app.post('/upload', upload.single('pdfDocument'), async (req, res) => {
             }
         });
     } catch (error) {
-        console.error("Error: ", error);
-        res.status(500).send("Server error");
+        console.error("Error in /upload:", error);
+        res.status(500).json({ error: "Server error during upload", details: error.message });
     }
 });
 
@@ -126,7 +126,7 @@ ${userQuestion}
                     content: userQuestion
                 }
             ],
-            model: "llama-3.1-8b-instant"
+            model: "openai/gpt-oss-20b"
         });
 
         res.json({
@@ -136,7 +136,7 @@ ${userQuestion}
 
     } catch (error) {
         console.error("Error asking question:", error);
-        res.status(500).send("Server error");
+        res.status(500).json({ error: "Server error asking question", details: error.message });
     }
 });
 
